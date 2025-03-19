@@ -27,5 +27,5 @@ LainOS Roadmap:
 8. **Post-Release Support**  
    - Monitor feedback and plan future updates.
 
-9. **Future Development: Alpine-Based LainOS**  
-   - Begin planning and development for an Alpine-based LainOS release aimed at users who dislike systemd.
+9. **Future Development: Artix-Based LainOS**  
+   - Begin planning and development for an Artix-based LainOS release aimed at users who dislike systemd.
