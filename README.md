@@ -1,7 +1,10 @@
 # .github
 Welcome to the LainOS project, a community driven Linux project built by the Serial Experiments Lain community. This project aims to create a light, useful and powerful linux distribution based on Arch Linux which is specifially tailored to the wants and needs of the SEL community.
 
-LainOS Roadmap:
+LainOS currently features a Calamares installer, two lightweight default window managers; hyprland and Openbox respectively, personalized eyecatching yet functional visual aesthetics which blend function and form together, Easter eggs for wired people, and an efficient tool selection all tailored to the SEL community in a creative manner we hope they appreciate.
+
+
+LainOS Roadmap(timeline in development):
 
 1. **Alpha Completion**  
    - Alpha version released for initial testing.
@@ -19,10 +22,10 @@ LainOS Roadmap:
    - Create and test the RC version.
 
 6. **Community Feedback on RC**  
-   - Implement feedback from the community.
+   - IMPLEMENT FEEDBACK FROM THE COMMUNITY.
 
 7. **Official Release 1.0 "Layer 1: Accella"**  
-   - Launch stable version with marketing efforts.
+   - Launch stable version 1.0
 
 8. **Post-Release Support**  
    - Monitor feedback and plan future updates.
