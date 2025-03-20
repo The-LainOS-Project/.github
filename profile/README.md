@@ -1,12 +1,13 @@
-Welcome to LainOS, a community driven Linux project built by the Serial Experiments Lain community. This project aims to create a light, useful and powerful linux distribution based on Arch Linux which is specifially tailored to the wants and needs of the SEL community.
+# Welcome to LainOS
+LainOS is a community driven Linux project built by the Serial Experiments Lain community. This project aims to create a light, useful and powerful linux distribution based on Arch Linux which is specifially tailored to the wants and needs of the SEL community.
+
+# If you would like to contribute, please contact us from [this](https://matrix.to/?fbclid=IwAR3aREfZ0l84eRuLdQ1RWq38Bm2mqvK4irokYoEWnvOibQPT7vqiIq_nhY8#/!hhlpPAPloYluaKwYAb:matrix.org?via=matrix.org) link.
 
 ![alt text](https://github.com/The-LainOS-Project/.github/blob/main/rainbowlain.png)
 
-LainOS currently features a Calamares installer, two lightweight default window managers; Hyprland and Openbox respectively, personalized eyecatching yet functional visual aesthetics which blend function and form together without compromise, Easter eggs for wired people, and an efficient tool selection all tailored to the SEL community in a creative manner we hope they appreciate as much as we do.(I actually wrote this, not some f*cking BS AI or deep blue chess computer.)
+### LainOS currently features a Calamares installer, two lightweight default window managers; Hyprland and Openbox respectively, personalized eyecatching yet functional visual aesthetics which blend function and form together without compromise, Easter eggs for wired people, and an efficient tool selection all tailored to the SEL community in a creative manner we hope they appreciate as much as we do.(I actually wrote this, not some f*cking BS AI or deep blue chess computer.)
 
-If you would like to contribute, please contact us from the contact list on this project's page.
-
-LainOS Roadmap:
+### LainOS Roadmap:
 
 1. **Alpha Completion**  
    - Alpha version released for initial testing.
