@@ -36,3 +36,9 @@ LainOS is a community driven Linux project built by the Serial Experiments Lain 
 
 9. **Future Development: Artix-Based LainOS(Lainix)**  
    - Begin planning and development for an Artix-based LainOS release aimed at users who dislike systemd.
+
+## Social media
+
+<a href="https://www.reddit.com/r/LainOSdevelopers/">
+<img src="https://img.shields.io/badge/Reddit-FF4500?style=for-the-badge&logo=reddit&logoColor=white">
+</a>&nbsp;&nbsp;
