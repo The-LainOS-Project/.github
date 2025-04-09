@@ -13,6 +13,29 @@ LainOS is a community driven Linux project built by the Serial Experiments Lain 
 ### LainOS currently features a Calamares installer, two lightweight default window managers; Hyprland and Openbox respectively, personalized eyecatching yet functional visual aesthetics which blend function and form together without compromise, Easter eggs for wired people, and an efficient tool selection all tailored to the SEL community in a creative manner we hope they appreciate as much as we do.
 #### (I actually wrote this, not some f*cking BS AI or deep blue chess computer.)
 
+## Features
+- Made with **Love**
+
+- Encrypted easy installations
+
+- Snappy performance due to lightweight window managers
+
+- It's **Ultra Based**, on Arch Linux
+
+- Developer tools and programming languages preinstalled
+
+- Customized shell prompt, git tools, and terminal tools for easy speedy "devving"
+
+- Arch user repository access
+
+- Sleek aethetics from the wired
+
+- Sane Defaults(**just kidding**)
+
+- Privacy Suite: wireguard-tools, gpa(pgp keyring), KeepassXC, macchanger, kloak keyboard anonymization, proxychains-ng, tor, I2P
+
+- Skid Kit: bettercap, nmap, sqlmap, wireshark, kismet, wifite, metasploit, routersploit, hashcat
+
 ### LainOS Roadmap:
 
 1. **Alpha Completion**  
