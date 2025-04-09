@@ -8,6 +8,7 @@ LainOS is a community driven Linux project built by the Serial Experiments Lain 
 # If you would like to contribute, please contact us from [this](https://matrix.to/?fbclid=IwAR3aREfZ0l84eRuLdQ1RWq38Bm2mqvK4irokYoEWnvOibQPT7vqiIq_nhY8#/!hhlpPAPloYluaKwYAb:matrix.org?via=matrix.org) link.
 
 ![alt text](https://github.com/The-LainOS-Project/.github/blob/main/rainbowlain.png)
+![alt text](https://github.com/The-LainOS-Project/Gallery/blob/main/swappy-20250409_101927.png)
 
 ### LainOS currently features a Calamares installer, two lightweight default window managers; Hyprland and Openbox respectively, personalized eyecatching yet functional visual aesthetics which blend function and form together without compromise, Easter eggs for wired people, and an efficient tool selection all tailored to the SEL community in a creative manner we hope they appreciate as much as we do.
 #### (I actually wrote this, not some f*cking BS AI or deep blue chess computer.)
