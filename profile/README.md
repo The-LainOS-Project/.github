@@ -63,5 +63,5 @@ This project aims to create a light, useful and powerful linux distribution base
 8. **Post-Release Support**  
    - Monitor feedback and plan future updates.
 
-9. **Future Development: Artix-Based LainOS(Lainix)**  
+9. **Future Development: Artix-Based LainOS(Lainix)™**  
    - Begin planning and development for an Artix-based LainOS release aimed at users who dislike systemd.
