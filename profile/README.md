@@ -16,19 +16,19 @@ LainOS is a community driven Linux project built by the Serial Experiments Lain 
 ## Features
 - Made with **Love**
 
-- Encrypted easy installations
+- Encrypted easy installations which work on UEFI or BIOS boot systems
 
 - Snappy performance due to lightweight window managers
 
 - It's **Ultra Based**, on Arch Linux
 
-- Developer tools and programming languages preinstalled
+- Developer tools and programming languages preinstalled (LainzyVim)™
 
 - Customized shell prompt, git tools, and terminal tools for easy speedy "devving"
 
 - Arch user repository access
 
-- Sleek aethetics from the wired
+- Sleek customized aethetics straight from the wired
 
 - Sane Defaults(**just kidding**)
 
