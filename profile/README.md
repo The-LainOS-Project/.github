@@ -6,7 +6,7 @@
 LainOS is a community driven Linux project built by several developers from the global Serial Experiments Lain community who came together and decided it was time to do something about the execution of the LainOS concept and now project.
 This project aims to create a light, useful and powerful linux distribution based on Arch Linux aimed at developers, tinkerers, and hackers alike who share the admiration of Serial Experiments Lain and similar works. (made by devs for devs)
 
-# If you would like to contribute, please contact us from [this](https://matrix.to/?fbclid=IwAR3aREfZ0l84eRuLdQ1RWq38Bm2mqvK4irokYoEWnvOibQPT7vqiIq_nhY8#/!hhlpPAPloYluaKwYAb:matrix.org?via=matrix.org) link.
+# If you would like to contribute, please contact us from [this](https://matrix.to/?fbclid=IwAR3aREfZ0l84eRuLdQ1RWq38Bm2mqvK4irokYoEWnvOibQPT7vqiIq_nhY8#/!hhlpPAPloYluaKwYAb:matrix.org?via=matrix.org) link. Our official website is https://lainos.dev and is currently being worked on.
 
 ![alt text](https://github.com/The-LainOS-Project/Gallery/blob/main/swappy-20250409_104106.png)
 
