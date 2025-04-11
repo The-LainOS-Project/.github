@@ -3,6 +3,8 @@ Welcome to the LainOS project, a community driven Linux project built by the Ser
 
 LainOS currently features a Calamares installer, two lightweight default window managers; hyprland and Openbox respectively, personalized eyecatching yet functional visual aesthetics which blend function and form together, Easter eggs for wired people, and an efficient tool selection all tailored to the SEL community in a creative manner we hope they appreciate.
 
+Official Website: https://lainos.dev
+
 
 LainOS Roadmap(timeline in development):
 
