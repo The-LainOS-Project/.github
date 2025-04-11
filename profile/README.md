@@ -45,7 +45,7 @@ This project aims to create a light, useful and powerful linux distribution base
 1. **Alpha Completion**  
    - Alpha version released for initial testing.
 
-2. **Beta Development** (Current)  
+2. **Beta Development** (Current)  The new official LainOS Project website https://lainos.dev website launched 10/04/2025
    - Identify bugs and gather community feedback.
 
 3. **Bug Fixing**  
