@@ -7,12 +7,13 @@ LainOS is a community driven Linux project built by several developers from the 
 This project aims to create a light, useful and powerful linux distribution based on Arch Linux aimed at developers, tinkerers, and hackers alike who share the admiration of Serial Experiments Lain and similar works. (made by devs for devs) 
 # If you would like to contribute, please contact us from [this](https://matrix.to/?fbclid=IwAR3aREfZ0l84eRuLdQ1RWq38Bm2mqvK4irokYoEWnvOibQPT7vqiIq_nhY8#/!hhlpPAPloYluaKwYAb:matrix.org?via=matrix.org) link. Our official website is https://lainos.dev
 
-![alt text](https://github.com/The-LainOS-Project/Gallery/blob/main/swappy-20250409_104106.png)
+![LainOS screenshot](https://github.com/The-LainOS-Project/Gallery/blob/main/swappy-20250409_104106.png)
 
 
 
 
-![alt text](https://github.com/The-LainOS-Project/Gallery/blob/main/swappy-20250409_101927.png)
+![LainOS screenshot](https://github.com/The-LainOS-Project/Gallery/blob/main/swappy-20250409_101927.png)
+![Color scheme](https://github.com/The-LainOS-Project/.github/blob/main/images/colorsheme.png)
 
 ### LainOS currently features a Calamares installer, two lightweight default window managers; Hyprland and Openbox respectively, personalized eyecatching yet functional visual aesthetics which blend function and form together without compromise, Easter eggs for wired people, and an efficient tool selection all tailored to the SEL community in a creative manner we hope they appreciate as much as we do.
 #### (I actually wrote this, not some f*cking BS AI or deep blue chess computer.)
