@@ -37,7 +37,7 @@ This project aims to create a light, useful and powerful linux distribution base
 
 - Sane Defaults(**just kidding**)
 
-- Privacy Suite: wireguard-tools, gpa(pgp keyring), KeepassXC, macchanger, kloak keyboard anonymization, proxychains-ng, tor, I2P
+- Privsec Suite: wireguard-tools, gpa(pgp keyring), KeepassXC, macchanger, kloak keyboard anonymization, ufw, proxychains-ng, tor, I2P
 
 - Skid Kit: bettercap, nmap, sqlmap, wireshark, kismet, wifite, metasploit, routersploit, hashcat
 
@@ -62,7 +62,7 @@ This project aims to create a light, useful and powerful linux distribution base
    - IMPLEMENT FEEDBACK FROM THE COMMUNITY.
 
 7. **Official Release 1.0 "Layer 1: Accella"**  
-   - Launch stable version 1.0.
+   - Launch stable version 1.0
 
 8. **Post-Release Support**  
    - Monitor feedback and plan future updates.
