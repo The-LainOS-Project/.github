@@ -44,6 +44,8 @@ This project aims to create a light, useful and powerful linux distribution base
 
 - Privsec Suite:
 
+- Librewolf Browser: Prvacy focused fork of Firefox
+
 - wireguard-tools: For setting up fast, modern VPNs.
 
 - gpa: A graphical tool for managing PGP keyrings.
