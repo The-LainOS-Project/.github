@@ -21,25 +21,63 @@ This project aims to create a light, useful and powerful linux distribution base
 ## Features
 - Made with **Love**
 
-- Encrypted easy installations which work on UEFI or BIOS boot systems
+- Encrypted easy installations with customized Calamares installer
 
-- Snappy performance due to lightweight window managers
+- Snappy performance due to lightweight window managers(Hyprland, Openbox)
 
 - It's **Ultra Based**, on Arch Linux
 
-- Developer tools and programming languages preinstalled (LainzyVim)™
+- Developer tools and programming languages preinstalled(code, clang, clisp, gcc, go, python, rust)
 
-- Customized shell prompt, git tools, and terminal tools for easy speedy "devving"
+- obs-studio 31.0.3-1
+
+- Customized shell prompt, git tools, and terminal tools for easy speedy "devving"(NeoVim, LazyVim  with plugins, Tmux and more)
 
 - Arch user repository access
 
-- Sleek customized aethetics straight from the wired
+- Sleek aethetics from the wired
 
 - Sane Defaults(**just kidding**)
 
-- Privsec Suite: wireguard-tools, gpa(pgp keyring), KeepassXC, macchanger, kloak keyboard anonymization, ufw, proxychains-ng, tor, I2P
+- Privsec Suite:
 
-- Skid Kit: bettercap, nmap, sqlmap, wireshark, kismet, wifite, metasploit, routersploit, hashcat
+- wireguard-tools: For setting up fast, modern VPNs.
+
+- gpa: A graphical tool for managing PGP keyrings.
+
+- KeepassXC: A secure password manager.
+
+- macchanger: For spoofing MAC addresses.
+
+- kloak: Keyboard anonymization to obscure typing patterns.
+
+- ufw: A user-friendly firewall.
+
+- proxychains-ng: For routing traffic through proxies.
+
+- tor: For anonymous browsing via the Tor network.
+
+- I2P: For accessing the Invisible Internet Project network. This suite is designed for users prioritizing anonymity and data protection.
+
+- Skid Kit:
+
+- bettercap: For network attacks and monitoring.
+
+- nmap: For network scanning and discovery.
+
+- sqlmap: For automated SQL injection testing.
+
+- wireshark: For packet analysis.
+
+- kismet: For wireless network analysis.
+
+- wifite: For automated Wi-Fi hacking.
+
+- metasploit: A penetration testing framework.
+
+- routersploit: For exploiting router vulnerabilities.
+
+- hashcat: For password cracking.
 
 ### LainOS Roadmap:
 
