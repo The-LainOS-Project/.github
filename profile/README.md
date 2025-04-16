@@ -39,6 +39,9 @@ This project aims to create a light, useful and powerful linux distribution base
 
 - Sane Defaults(**just kidding**)
 
+
+
+
 - Privsec Suite:
 
 - wireguard-tools: For setting up fast, modern VPNs.
