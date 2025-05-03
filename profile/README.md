@@ -1,6 +1,15 @@
-![REDDIT](https://img.shields.io/badge/Reddit-FF4500?style=for-the-badge&logo=reddit&logoColor=white&link=https://www.reddit.com/r/LainOSdevelopers/)
-![MATRIX](https://img.shields.io/badge/Matrix%20-%20%230047a7?style=for-the-badge&logo=matrix&link=https://matrix.to/?fbclid=IwAR3aREfZ0l84eRuLdQ1RWq38Bm2mqvK4irokYoEWnvOibQPT7vqiIq_nhY8#/!hhlpPAPloYluaKwYAb:matrix.org?via=matrix.org)
-![DISCORD](https://img.shields.io/badge/Discord%20-%20%234900ff?style=for-the-badge&logo=discord&link=todo!)
+<!--Reddit-->
+<a href="https://www.reddit.com/r/LainOSdevelopers/" target="_blank">
+  <img align="top" src="https://img.shields.io/badge/Reddit-FF4500?style=for-the-badge&logo=reddit&logoColor=white" alt="Reddit">
+</a>
+<!--Matrix-->
+<a href="https://matrix.to/?fbclid=IwAR3aREfZ0l84eRuLdQ1RWq38Bm2mqvK4irokYoEWnvOibQPT7vqiIq_nhY8#/!hhlpPAPloYluaKwYAb:matrix.org?via=matrix.org" target="_blank">
+  <img align="top" src="https://img.shields.io/badge/Matrix%20-%20%230047a7?style=for-the-badge&logo=matrix" alt="Matrix">
+</a>
+<!--Discord-->
+<a href="https://discord.gg/atZ32vU24U" target="_blank">
+  <img align="top" src="https://img.shields.io/badge/Discord%20-%20%234900ff?style=for-the-badge&logo=discord" alt="Discord">
+</a>
 
 # Welcome to LainOS
 LainOS is a community driven Linux project built by several developers from the global Serial Experiments Lain community who came together and decided it was time to do something about the execution of the LainOS concept and now project, originally derived from the 2002 LainOS.org coding experiments project, starting in early 2022.
