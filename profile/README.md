@@ -40,7 +40,7 @@ Looking for the installation? [Check the official wiki here!](https://github.com
    - Initial testing version released
 2. **Beta Development**  
    - Bug identification and community feedback collection
-3. **Bug Fixing**  
+3. **Bug Fixing** (CURRENT) 
    - Critical issue resolution
 4. **Repository Cloning**  
    - Customizing Arch Linux repos to establish LainOS as standalone distro
@@ -58,16 +58,17 @@ Looking for the installation? [Check the official wiki here!](https://github.com
 ## ✨ Key Features
 
 ###  Core Experience
-- **Arch Linux-based** with AUR access
+- **Arch Linux-based** with AUR access thru yay or paru
 - **Lightweight WMs**: Hyprland and Openbox for snappy performance
-- **Custom Calamares installer** with encryption support
+- **Custom Calamares installer** with encryption support and support for UEFI or BIOS boot configurateions
 - **Sleek cyberpunk aesthetics** inspired by The Wired
 
 ###  Developer Tools
-- Preinstalled languages: Python, Rust, Go, GCC, Clang, CLisp
-- NeoVim with LazyVim plugins
+- Preinstalled languages: Python, R, for easust, Go, GCC, Clang, CLisp
+- NeoVim with LazyVim plugins and custom riced out Lain themed Lazyvim command prompt Dashboard plugin for easy dev work
 - Tmux for terminal multiplexing
-- VS Code and other essential dev tools
+- VS Code(for the pussies who can't use VIM) and other essential dev tools(terminal utilities, git utilies)
+- LazyVIM with plugins, for real Men, D*ckless or Not.
 
 ###  Privacy & Security Suite
 - **Networking**: WireGuard, Tor, I2P, Proxychains-ng
