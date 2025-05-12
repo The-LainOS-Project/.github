@@ -60,7 +60,7 @@ Looking for the installation? [Check the official wiki here!](https://github.com
 ###  Core Experience
 - **Arch Linux-based** with AUR access thru yay or paru
 - **Lightweight WMs**: Hyprland and Openbox for snappy performance
-- **Custom Calamares installer** with encryption support and support for UEFI or BIOS boot configurateions
+- **Custom Calamares installer** with encryption support and support for UEFI or BIOS boot configurations
 - **Sleek cyberpunk aesthetics** inspired by The Wired
 
 ###  Developer Tools
