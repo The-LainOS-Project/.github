@@ -68,7 +68,7 @@ Looking for the installation? [Check the official wiki here!](https://github.com
 - NeoVim with LazyVim plugins and custom riced out Lain themed Lazyvim command prompt Dashboard plugin for easy dev work
 - Tmux for terminal multiplexing
 - VS Code(for the pussies who can't use VIM) and other essential dev tools(terminal utilities, git utilies)
-- LazyVIM with plugins, for real Men, D*ckless or Not.
+- LazyVIM with plugins
 
 ###  Privacy & Security Suite
 - **Networking**: WireGuard, Tor, I2P, Proxychains-ng
