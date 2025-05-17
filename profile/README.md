@@ -71,11 +71,11 @@ Looking for the installation? [Check the official wiki here!](https://github.com
 - LazyVIM with plugins
 
 ###  Privacy & Security Suite
-- **Networking**: WireGuard, Tor, I2P, Proxychains-ng
+- **Networking**: WireGuard, Tor, I2P, Proxychains-ng, MAC randomization by default
 - **Protection**: UFW firewall, Kloak (keystroke anonymization)
 - **Utilities**: KeePassXC, GPA (PGP manager), MAC changer
 
-###  Pentesting Toolkit
+###  Pentesting Toolkit(Optional)
 - Network analysis: Wireshark, Kismet, Nmap
 - Exploitation: Metasploit, RouterSploit
 - Wireless: Bettercap, Wifite
