@@ -81,4 +81,4 @@ Looking for the installation? [Check the official wiki here!](https://github.com
 - Wireless: Bettercap, Wifite
 - Password cracking: Hashcat
 
-Grayson Giles aka amnesia1337 PGP fingerprint: 2B53ECEF5A47ACF19A080E46B2E5012D409A7AFB
+Grayson Giles aka amnesia1337 PGP fingerprint: 2B53ECEF5A47ACF19A080E46B2E5012D409A7AFB on keyserver https://keys.openpgp.org
