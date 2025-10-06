@@ -15,7 +15,7 @@
   <img align="top" src="https://img.shields.io/badge/Lain%20OS%20web-3d3b93?style=for-the-badge&logo=Devbox" alt="Web">
 </a>
 
-# Welcome to LainOS. We have moved the project to Gitlab: https://gitlab.com/lainos
+# Welcome to LainOS. We have moved the project to GitLab: https://gitlab.com/lainos
 LainOS is a community driven Linux project lead by Grayson Giles (@amnesia1337) and built by several developers from the global Serial Experiments Lain community who came together and decided it was time to do something about the execution of the LainOS concept and now project, originally derived from the 2002 LainOS.org coding experiments project, starting in early 2022.
 This project aims to create a light, useful and powerful linux distribution based on Arch Linux aimed at developers, tinkerers, and hackers alike who share the admiration of Serial Experiments Lain and similar works. If you like what we are doing, consider donating to our liberapay. https://liberapay.com/LainOS/
 
@@ -80,3 +80,5 @@ Looking for the installation? [Check the official wiki here!](https://github.com
 - Exploitation: Metasploit, RouterSploit
 - Wireless: Bettercap, Wifite
 - Password cracking: Hashcat
+
+Grayson Giles aka amnesia1337 PGP fingerprint: 2B53ECEF5A47ACF19A080E46B2E5012D409A7AFB
