@@ -40,11 +40,11 @@ Looking for the installation? [Check the official wiki here!](https://github.com
    - Initial testing version released
 2. **Beta Development**  
    - Bug identification and community feedback collection
-3. **Bug Fixing** (CURRENT) 
+3. **Bug Fixing**  
    - Critical issue resolution
-4. **Repository Cloning**  
+4. **Repository Cloning** **POSTPONED** 
    - Customizing Arch Linux repos to establish LainOS as standalone distro
-5. **Release Candidate (RC)**  
+5. **Release Candidate (RC)**  **CURRENT**
    - Final testing phase
 6. **Community Feedback on RC**  
    - Implement user suggestions
