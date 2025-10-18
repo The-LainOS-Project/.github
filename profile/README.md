@@ -73,7 +73,7 @@ Looking for the installation? [Check the official wiki here!](https://github.com
 ###  Privacy & Security Suite
 - **Networking**: WireGuard, Tor, I2P, Proxychains-ng, MAC randomization by default
 - **Protection**: UFW firewall, Kloak (keystroke anonymization)
-- **Utilities**: KeePassXC, GPA (PGP manager), MAC changer
+- **Utilities**: KeePassXC, Kleopatra (PGP manager), MAC changer
 
 ###  Pentesting Toolkit(Optional)
 - Network analysis: Wireshark, Kismet, Nmap
