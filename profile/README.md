@@ -64,7 +64,7 @@ Looking for the installation? [Check the official wiki here!](https://github.com
 - **Sleek cyberpunk aesthetics** inspired by The Wired
 
 ###  Developer Tools
-- Preinstalled languages: Python, R, for easust, Go, GCC, Clang, CLisp
+- Preinstalled languages: Python, Rust, Go, GCC, Clang, CLisp
 - NeoVim with LazyVim plugins and custom riced out Lain themed Lazyvim command prompt Dashboard plugin for easy dev work
 - Tmux for terminal multiplexing
 - VS Code(for the pussies who can't use VIM) and other essential dev tools(terminal utilities, git utilies)
