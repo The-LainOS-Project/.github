@@ -75,6 +75,7 @@ Looking for the installation? [Check the official wiki here!](https://github.com
 - **Networking**: WireGuard, Tor, I2P, Proxychains-ng, MAC randomization by default
 - **Protection**: UFW firewall, Kloak (keystroke anonymization)
 - **Utilities**: KeePassXC, Kleopatra (PGP manager), MAC changer
+- **LainOS Secure Messaging service** Onionized XMPP with optional PGP login, and our own Onion XMPP service and private chatroom.
 
 ###  Pentesting Toolkit(Optional)
 - Network analysis: Wireshark, Kismet, Nmap
