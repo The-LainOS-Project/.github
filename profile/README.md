@@ -84,3 +84,18 @@ Looking for the installation? [Check the official wiki here!](https://github.com
 - Password cracking: Hashcat
 
 Grayson Giles aka amnesia1337 PGP fingerprint: 2B53ECEF5A47ACF19A080E46B2E5012D409A7AFB on keyserver https://keys.openpgp.org
+
+### These are Grayson Giles (Amnesia's)contributions to other projects and his portfolio. (Sorry but I need the SEO)
+
+**Grayson Giles Portfolio:** https://github.com/amnesia1337/Portfolio/blob/main/README.md
+
+### Contributions to QubesOS and Whonix 🔒
+
+* **QubesOS**: Diagnosed, fixed, and enhanced the broken Snowflake Tor pluggable transport feature, while significantly improving its reliability, thus improving the anti-censorship and user anonymity capabilities of QubesOS.
+    * **Guide**: [Quick Start Guide for Snowflake Proxy in Qubes/Whonix](https://forum.qubes-os.org/t/quick-start-guide-snowflake-proxy-in-qubes-whonix-tor-control-panel/28889)
+* **Whonix**: Fixed and enhanced the broken Snowflake Tor pluggable transport feature in Whonix Tor control panel, thus improving the anti-censorship and user anonymity capabilities of Whonix, featured and credited on the Whonix Bridges Wiki page.
+    * **Guide**: [Quick Start Guide for Fixing Snowflake Proxy in Qubes/Whonix](https://forums.whonix.org/t/quick-start-guide-fix-snowflake-proxy-in-qubes-whonix-tor-control-panel/20377)
+    * **Whonix Wiki Contribution**: Featured as a contributor on the [Whonix Bridges Wiki Page](https://www.whonix.org/wiki/Bridges), credited as "Amnesia <`amnesia at boum dot org`>"
+
+---
+
