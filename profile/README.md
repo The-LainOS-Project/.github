@@ -44,11 +44,11 @@ Looking for the installation? [Check the official wiki here!](https://github.com
    - Critical issue resolution
 4. **Repository Cloning** **POSTPONED** 
    - Customizing Arch Linux repos to establish LainOS as standalone distro
-5. **Release Candidate (RC)**  **CURRENT**
+5. **Release Candidate (RC)**  
    - Final testing phase
 6. **Community Feedback on RC**  
    - Implement user suggestions
-7. **Official Release 1.0 "Layer 1: Accela"**  
+7. **Official Release 1.0 "Layer 1: Accela"** **CURRENT** 
    - Stable version launch with promotional efforts
 8. **Post-Release Support**  
    - Ongoing maintenance and update planning
