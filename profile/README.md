@@ -48,7 +48,7 @@ Looking for the installation? [Check the official wiki here!](https://github.com
    - Final testing phase
 6. **Community Feedback on RC**  
    - Implement user suggestions
-7. **Official Release 1.0 "Layer 1: Accela"** **CURRENT** 
+7. **Official Release 1.0 "Layer 01: - Accela"** **CURRENT** 
    - Stable version launch with promotional efforts
 8. **Post-Release Support**  
    - Ongoing maintenance and update planning
