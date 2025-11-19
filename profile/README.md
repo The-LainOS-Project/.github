@@ -36,21 +36,21 @@ Looking for the installation? [Check the official wiki here!](https://github.com
 ## ⌨️ Development Roadmap 💻
 
 ### Current Phase: Beta Development
-1. **Alpha Completion**  
+1. **Alpha Completion**  (COMPLETED)
    - Initial testing version released
-2. **Beta Development**  
+2. **Beta Development**  (COMPLETED)
    - Bug identification and community feedback collection
-3. **Bug Fixing**  
+3. **Bug Fixing**  (COMPLETED)
    - Critical issue resolution
 4. **Repository Cloning** **POSTPONED** 
    - Customizing Arch Linux repos to establish LainOS as standalone distro
-5. **Release Candidate (RC)**  
+5. **Release Candidate (RC)** (COMPLETED) 
    - Final testing phase
-6. **Community Feedback on RC**  
+6. **Community Feedback on RC**  (COMPLETED)
    - Implement user suggestions
-7. **Official Release 1.0 "Layer 01: - Accela"** **CURRENT** 
+7. **Official Release 1.0 "Layer 01: - Accela"** (COMPLETED)  
    - Stable version launch with promotional efforts
-8. **Post-Release Support**  
+8. **Post-Release Support**  **CURRENT**
    - Ongoing maintenance and update planning
 9. **Future: Artix-Based Version**  
    - Systemd-free alternative in development
