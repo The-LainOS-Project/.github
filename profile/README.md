@@ -52,8 +52,8 @@ Looking for the installation? [Check the official wiki here!](https://github.com
    - Stable version launch with promotional efforts
 8. **Post-Release Support**  **CURRENT**
    - Ongoing maintenance and update planning
-9. **January 2026 ~ LainOS**  
-   - OpenRC alternative in development. No Artix. ;)
+9. **January 2026 ~ LainOS Layer 02: - Protocol 7**  
+   - OpenRC alternative in development. Pure LainOS, No Artix. ;)
 
 ## ✨ Key Features
 
