@@ -52,8 +52,8 @@ Looking for the installation? [Check the official wiki here!](https://github.com
    - Stable version launch with promotional efforts
 8. **Post-Release Support**  **CURRENT**
    - Ongoing maintenance and update planning
-9. **Future: Artix-Based Version**  
-   - Systemd-free alternative in development
+9. **January 2026 ~ LainOS**  
+   - OpenRC alternative in development. No Artix. ;)
 
 ## ✨ Key Features
 
