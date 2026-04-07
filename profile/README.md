@@ -11,13 +11,13 @@
   <img align="top" src="https://img.shields.io/badge/Discord%20-%20%234900ff?style=for-the-badge&logo=discord" alt="Discord">
 </a>
 <!--Web page-->
-<a href="https://lainos.dev/" target="_blank">
+<a href="https://lainos.net" target="_blank">
   <img align="top" src="https://img.shields.io/badge/Lain%20OS%20web-3d3b93?style=for-the-badge&logo=Devbox" alt="Web">
 </a>
 
 # Welcome to LainOS. We have moved the project back to Codeberg: https://codeberg.org/LainOS
 LainOS is a community driven Linux project lead by Grayson Giles (@amnesia1337) and built by several developers from the global Serial Experiments Lain community who came together and decided it was time to do something about the execution of the LainOS concept and now project, originally derived from the 2002 LainOS.org coding experiments project, starting in early 2022.
-This project aims to create a light, useful and powerful linux distribution based on Arch Linux aimed at developers, tinkerers, and hackers alike who share the admiration of Serial Experiments Lain and similar works. If you like what we are doing, consider donating to our liberapay. https://liberapay.com/LainOS/
+This project aims to create a light, useful and powerful linux distribution based on Arch Linux aimed at developers, tinkerers, and hackers alike, who share the admiration of Serial Experiments Lain and similar works. If you like what we are doing, consider donating: https://lainos.net/#donate
 
 Looking for the installation? [Check the official wiki here!](https://github.com/The-LainOS-Project/LainOS/wiki)
 # If you would like to contribute, please contact us from the above social links.
