@@ -7,7 +7,7 @@
   <img align="top" src="https://img.shields.io/badge/Matrix%20-%20%230047a7?style=for-the-badge&logo=matrix" alt="Matrix">
 </a>
 <!--Discord-->
-<a href="https://discord.gg/atZ32vU24U" target="_blank">
+<a href="https://discord.gg/JdMQvkHqwH" target="_blank">
   <img align="top" src="https://img.shields.io/badge/Discord%20-%20%234900ff?style=for-the-badge&logo=discord" alt="Discord">
 </a>
 <!--Web page-->
@@ -80,6 +80,11 @@ Looking for the installation? [Check the official wiki here!](https://github.com
 - Payload deployment: Metasploit, RouterSploit
 - Wireless: Bettercap, Wifite
 - Password cracking: Hashcat
+
+### Join our Matrix, XMPP, and Discord communities via the links at the top of our README or at https://lainos.net/#contact
+
+Reminder: Due to Discord's new surveillance policy, our Discord server is no longer officially supported or listed on our website, but will remain linked here for posterity. 
+https://discord.gg/JdMQvkHqwH
 
 Grayson Giles aka amnesia1337 PGP fingerprint: 2B53ECEF5A47ACF19A080E46B2E5012D409A7AFB on keyserver https://keys.openpgp.org
 
