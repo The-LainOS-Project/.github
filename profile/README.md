@@ -3,7 +3,7 @@
   <img align="top" src="https://img.shields.io/badge/Reddit-FF4500?style=for-the-badge&logo=reddit&logoColor=white" alt="Reddit">
 </a>
 <!--Matrix-->
-<a href="https://matrix.to/?fbclid=IwAR3aREfZ0l84eRuLdQ1RWq38Bm2mqvK4irokYoEWnvOibQPT7vqiIq_nhY8#/!hhlpPAPloYluaKwYAb:matrix.org?via=matrix.org" target="_blank">
+<a href="https://matrix.to/#/#lainos:catgirl.cloud" target="_blank">
   <img align="top" src="https://img.shields.io/badge/Matrix%20-%20%230047a7?style=for-the-badge&logo=matrix" alt="Matrix">
 </a>
 <!--Discord-->
