@@ -23,6 +23,10 @@
 
 > **Our source code is now hosted at [forgejo.lain.rocks/lainOS](https://forgejo.lain.rocks/lainOS)**
 
+> **lainOS layer 02** is available at https://forgejo.lain.rocks/lainOS/lainOS-layer-02/releases
+
+> **lainOS layer 01** with systemd is available at https://forgejo.lain.rocks/lainOS/lainOS/releases
+
 # LainOS Layer 02: Protocol 7
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
