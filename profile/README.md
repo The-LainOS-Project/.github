@@ -33,7 +33,7 @@
 [![Architecture](https://img.shields.io/badge/Arch-x86__64-blue)](https://archlinux.org)
 [![Init](https://img.shields.io/badge/Init-OpenRC-green)](https://github.com/OpenRC/openrc)
 [![ISO Size](https://img.shields.io/badge/ISO-2.7GB-blue)](https://lainos.net)
-[![Status](https://img.shields.io/badge/Status-RC8-yellow)](https://lainos.net)
+[![Status](https://img.shields.io/badge/Status-Stable-green)](https://lainos.net)
 
 **A systemd-free Arch Linux derivative built with OpenRC as PID 1, offering full ABI compatibility for systemd-linked software via the Protocol 7 compatibility architecture.**
 
