@@ -1,3 +1,17 @@
+> ### **Our source code is now hosted at [forgejo.lain.rocks/lainOS](https://forgejo.lain.rocks/lainOS)**
+
+> **lainOS layer 02** is available at https://forgejo.lain.rocks/lainOS/lainOS-layer-02/releases
+
+> **lainOS layer 01** with systemd is available at https://forgejo.lain.rocks/lainOS/lainOS/releases
+
+# LainOS Layer 02: Protocol 7
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Architecture](https://img.shields.io/badge/Arch-x86__64-blue)](https://archlinux.org)
+[![Init](https://img.shields.io/badge/Init-OpenRC-green)](https://github.com/OpenRC/openrc)
+[![ISO Size](https://img.shields.io/badge/ISO-2.7GB-blue)](https://lainos.net)
+[![Status](https://img.shields.io/badge/Status-Stable-green)](https://lainos.net)
+
 <!--Reddit-->
 <a href="https://www.reddit.com/r/LainOSdevelopers/" target="_blank">
   <img align="top" src="https://img.shields.io/badge/Reddit-FF4500?style=for-the-badge&logo=reddit&logoColor=white" alt="Reddit">
@@ -18,22 +32,7 @@
 <a href="https://forgejo.lain.rocks/lainOS" target="_blank">
   <img align="top" src="https://img.shields.io/badge/Forgejo-ff6600?style=for-the-badge&logo=forgejo&logoColor=white" alt="Forgejo">
 </a>
-
 <br><br>
-
-> ### **Our source code is now hosted at [forgejo.lain.rocks/lainOS](https://forgejo.lain.rocks/lainOS)**
-
-> **lainOS layer 02** is available at https://forgejo.lain.rocks/lainOS/lainOS-layer-02/releases
-
-> **lainOS layer 01** with systemd is available at https://forgejo.lain.rocks/lainOS/lainOS/releases
-
-# LainOS Layer 02: Protocol 7
-
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Architecture](https://img.shields.io/badge/Arch-x86__64-blue)](https://archlinux.org)
-[![Init](https://img.shields.io/badge/Init-OpenRC-green)](https://github.com/OpenRC/openrc)
-[![ISO Size](https://img.shields.io/badge/ISO-2.7GB-blue)](https://lainos.net)
-[![Status](https://img.shields.io/badge/Status-Stable-green)](https://lainos.net)
 
 **A systemd-free Arch Linux derivative built with OpenRC as PID 1, offering full ABI compatibility for systemd-linked software via the Protocol 7 compatibility architecture.**
 
