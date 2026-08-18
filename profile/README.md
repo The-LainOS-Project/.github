@@ -82,10 +82,6 @@ doas protocol7-core-security-status      # 36-test adversarial suite
 
 ---
 
-Here is an **OpenRC Isolation / Containment** section to add to the GitHub README, placed after the Security Posture section and before the Architecture section.
-
----
-
 ## 🧩 OpenRC Service Isolation & Containment Stack
 
 Layer 02 ships with an **OpenRC-native service isolation stack** that provides systemd-equivalent containment (`ProtectSystem=`, `PrivateTmp=`, capability bounding, resource limits, syscall filtering) without systemd, without compatibility layers, and without forking OpenRC.
