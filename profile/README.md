@@ -82,6 +82,110 @@ doas protocol7-core-security-status      # 36-test adversarial suite
 
 ---
 
+Here is an **OpenRC Isolation / Containment** section to add to the GitHub README, placed after the Security Posture section and before the Architecture section.
+
+---
+
+## 🧩 OpenRC Service Isolation & Containment Stack
+
+Layer 02 ships with an **OpenRC-native service isolation stack** that provides systemd-equivalent containment (`ProtectSystem=`, `PrivateTmp=`, capability bounding, resource limits, syscall filtering) without systemd, without compatibility layers, and without forking OpenRC.
+
+The stack composes four kernel primitives per service, driven by declarative `rc_*` variables in `/etc/conf.d/<service>`:
+
+| Layer | Mechanism | What It Does |
+|-------|-----------|--------------|
+| **Namespace isolation** | bwrap | Mount/PID/network namespace isolation and filesystem containment |
+| **Resource limits** | cgroup-v2 | Memory, CPU, and process-count ceilings (`rc_memory_max`, `rc_cpu_quota`, `rc_pids_max`) |
+| **Syscall filtering** | seccomp-bpf | Per-service syscall allowlisting (`rc_seccomp_profile`) |
+| **Path enforcement** | Landlock LSM | LSM-level path restriction that survives a namespace escape (`rc_landlock_ro`, `rc_landlock_rw`) |
+
+Both `rc-sandbox` and `lainos-sandbox-wrap` are written in **Rust** and compiled to statically-linked, memory-safe binaries. No shell scripts or interpreted code exist in the isolation chain between OpenRC and the target service.
+
+### Default Behavior
+
+All lainOS-shipped services are **sandboxed by default**. A service runs unsandboxed only if explicitly opted out:
+
+```bash
+# /etc/conf.d/<service>
+rc_sandbox="NO"   # Opt out of all isolation
+```
+
+### Service Coverage
+
+The following core services run inside the isolation stack with per-service profiles:
+
+| Service | Seccomp Profile | PID Namespace | Network | Foreground Required |
+|---------|-----------------|---------------|---------|---------------------|
+| `dnsmasq` | `lainos-network` | Isolated | Host | Yes (`--keep-in-foreground`) |
+| `unbound` | `lainos-network` | Isolated | Host | Yes (`-d`) |
+| `dnscrypt-proxy` | `lainos-network` | Isolated | Host | Yes (default) |
+| `tor` | `lainos-network` | Isolated | Host | Yes (`--RunAsDaemon 0`) |
+| `dhcpcd` | `lainos-privileged` | **Host** | Host | No (`rc_unshare_pid="NO"`) |
+| `chrony` | `lainos-privileged` | **Host** | Host | Yes (`-d`) |
+| `syslog-ng` | `lainos-base` | Isolated | **Isolated** | Yes (`-F`) |
+| `acpid` | `lainos-base` | Isolated | Host | No |
+| `iwd` | `lainos-privileged` | Isolated | Host | No |
+
+### Declarative Service Configuration
+
+Service isolation is configured entirely through variables in `/etc/conf.d/<service>`:
+
+```bash
+# /etc/conf.d/dnsmasq
+rc_private_tmp="YES"                    # Private /tmp
+rc_protect_home="YES"                   # Hide /home and /root
+rc_protect_system="STRICT"              # Read-only /usr and /boot
+rc_capability_bounding_set="CAP_NET_BIND_SERVICE,CAP_NET_RAW"
+rc_memory_max="256M"                    # Memory limit
+rc_pids_max="20"                        # Process count limit
+rc_seccomp_profile="lainos-network"     # Syscall allowlist
+rc_network_access="YES"                 # Host network namespace
+rc_unshare_pid="YES"                    # Isolated PID namespace (foreground required)
+```
+
+### Verification
+
+`openrc-security-status` verifies every layer at runtime:
+
+```bash
+doas openrc-security-status
+```
+
+Example output:
+
+```
+=== dnsmasq ===
+  process               running as PID 8606 (comm=dnsmasq)
+  namespace: mount      ISOLATED (own mount ns)
+  namespace: network    shared with host (rc_network_access=YES, correct)
+  namespace: pid        ISOLATED (own PID namespace)
+  cgroup limits         ENFORCED (memory.max=67108864 pids.max=20)
+  seccomp-bpf           ACTIVE (filter mode, 1 filter(s) loaded, no_new_privs set)
+  capabilities          NARROWED (CapEff=0x0000000000002400 CapBnd=0x00000000000024c3)
+  AppArmor              CONFINED (/usr/bin/dnsmasq)
+```
+
+### Failure Behavior
+
+| Layer | Failure Mode | Rationale |
+|-------|--------------|-----------|
+| bwrap | **Hard failure** ~ service does not start | Primary containment layer |
+| seccomp-bpf | **Hard failure** ~ service does not start | Primary containment layer |
+| no_new_privs | **Hard failure** ~ service does not start | Closes setuid-based seccomp bypass |
+| cgroup-v2 | **Soft failure** ~ service starts with warning | Hardening layer |
+| Landlock | **Soft failure** ~ service starts with warning | Backstop layer |
+
+### Security Properties
+
+- **Services are sandboxed by default** ~ opt-out, not opt-in
+- **Four independent layers** ~ failure of one does not compromise the others
+- **Landlock backstop** ~ LSM-level path enforcement survives a namespace escape (systemd does not have this)
+- **Runtime verification** ~ `openrc-security-status` confirms every layer is active and enforcing
+- **Rust implementation** ~ memory-safe, statically-linked, no shell scripts in the critical path
+- **AppArmor complement** ~ independent path-based MAC layer on top of namespace isolation
+
+---
+
 ## 🏗️ Architecture
 
 ```
