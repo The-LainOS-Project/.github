@@ -181,6 +181,129 @@ Example output:
 
 ---
 
+## DNS Mediation Architecture
+
+LainOS provides a localized, stateless DNS forwarding architecture built around `dnsmasq`. Rather than exposing upstream resolver information directly to applications, the operating system presents a single, stable resolver endpoint (`127.0.0.1:53`) and centralizes DNS policy within a dedicated forwarding layer.
+
+Applications never communicate directly with upstream DNS servers. The resolver architecture remains identical regardless of operational mode; only the forwarding destination changes.
+
+### Architecture
+
+All DNS resolution follows a single deterministic path:
+
+```
+                +----------------------+
+                |   Local Application  |
+                +----------+-----------+
+                           |
+                           v
+                    /etc/resolv.conf
+                           |
+                           v
+                      127.0.0.1:53
+                           |
+                           v
+                        dnsmasq
+                           |
+               +-----------+-----------+-----------+
+               |                       |           |
+               |                       |           |
+         Plaintext Mode          Encrypted Mode  Private Mode
+               |                       |           |
+               v                       v           v
+     DHCP / Manual Fallback     Local Proxy    Tor DNSPort
+     (1.1.1.1, 9.9.9.9)        (127.0.0.1:5053)  (9059)
+                                  |
+                                  v
+                               unbound
+                           (127.0.0.1:5053)
+                                  |
+                                  v
+                            dnscrypt-proxy
+                           (127.0.0.1:5300)
+                                  |
+                    +-------------+-------------+
+                    |                           |
+                    v                           v
+              Anonymized Relay              Resolver
+              (IP hiding)              (DNSCrypt, no-log)
+```
+
+### Stateless Forwarding
+
+`dnsmasq` operates as a forwarding resolver rather than a caching resolver:
+
+```
+cache-size=0
+no-negcache
+```
+
+This intentionally avoids retaining successful or negative DNS query history in memory. All caching, prefetching, and TTL management is delegated to `unbound`. If compromised, `dnsmasq` leaks no historical query data.
+
+The resolver is bound exclusively to the loopback interface and is never exposed externally.
+
+### Operational Modes
+
+| Mode | Description | Activation |
+|------|-------------|------------|
+| **Plaintext** (Default) | DHCP-provided resolver with fallbacks to 1.1.1.1/9.9.9.9 | `lainos-dns plaintext` |
+| **Encrypted** | `dnsmasq` → `unbound` (DNSSEC, caching) → `dnscrypt-proxy` (encrypted transport, anonymized relay) | `lainos-dns encrypted` |
+| **Private** | All DNS through Tor's DNSPort (127.0.0.1:9059) | `private-mode on` |
+
+### Split-Controller Privacy in Encrypted Mode
+
+In encrypted mode, the DNS chain splits responsibilities so no single component sees both the user's IP and their plaintext query:
+
+- **`dnsmasq`** — sees the user's IP but has no cache and no query history
+- **`unbound`** — validates DNSSEC, caches, and forwards to dnscrypt-proxy; does not see the user's IP
+- **`dnscrypt-proxy`** — encrypts and routes through an anonymized relay; sees neither the query nor the user's IP
+- **Relay** — knows the user's IP but not the query
+- **Resolver** — knows the query but not the user's IP
+
+This is a stronger privacy model than direct DoT or DoH to a single provider, where one entity sees both.
+
+### Mode Transitions
+
+The `lainos-dns` utility manages transitions between plaintext and encrypted modes, persisting the active mode to `/var/lib/lainos/dns-mode`.
+
+`private-mode` saves the previous DNS mode before switching to Tor, and restores it on exit. This ensures a user who prefers encrypted DNS does not silently revert to plaintext after using private mode.
+
+### AppArmor Confinement
+
+The entire DNS forwarding layer is confined under AppArmor:
+
+- `/usr/bin/dnsmasq` — limited to loopback networking and necessary configuration paths
+- `/usr/bin/unbound` — restricted to resolver operations and cache directories
+- `/usr/bin/dnscrypt-proxy` — restricted to encrypted socket operations and relay lists
+
+These profiles reduce attack surface by limiting filesystem access, network capabilities, and system calls to only what is required for DNS forwarding operations.
+
+### Commands
+
+```bash
+lainos-dns plaintext    # Plaintext fallbacks
+lainos-dns encrypted    # Encrypted: unbound + dnscrypt-proxy
+lainos-dns private      # Tor DNSPort, via private-mode
+lainos-dns status       # Show current mode and full chain status
+```
+
+Mode transitions are explicit and stateful; `private-mode` remembers and restores your previous mode on exit.
+
+---
+
+## Summary
+
+The DNS mediation architecture provides:
+
+- **Stateless forwarding** — `dnsmasq` has no cache and no query history
+- **Loopback isolation** — resolver never exposed externally
+- **Split-controller privacy** — no single component sees both IP and query
+- **Explicit mode transitions** — user always knows which mode is active
+- **AppArmor confinement** — all DNS daemons are AppArmor-enforced
+- **Application transparency** — applications see only `127.0.0.1:53`
+
+---
+
 ## 🏗️ Architecture
 
 ```
