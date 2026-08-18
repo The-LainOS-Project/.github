@@ -51,6 +51,7 @@ If you like what we are doing, consider donating: [lainos.net/#donate](https://l
 | Feature | Implementation |
 |---------|---------------|
 | **Init System** | OpenRC as PID 1 ~ no systemd binary present |
+| **Service Isolation/Containment** | All lainOS-shipped OpenRC services are **sandboxed by default**(namespace isolation, capability bounding, resource limits, seccomp syscall filtering).  |
 | **Compatibility** | Protocol 7 layer provides `libsystemd.so.0` ABI via real systemd-libs |
 | **Self-Hosted Stack** | Entire OpenRC ecosystem maintained in our own repository |
 | **Live ISO** | Fully bootable live environment with Calamares installer |
