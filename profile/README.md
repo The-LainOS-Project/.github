@@ -64,6 +64,7 @@ If you like what we are doing, consider donating: [lainos.net/#donate](https://l
 
 Layer 02 ships with defense in depth at every layer:
 
+- **OpenRC process isolation/containment stack** ~ written in rust. covers full network stack and core services
 - **Protocol 7 Core fuzz tested** ~ dfuzzer 2.6 full interface PASS, AddressSanitizer PASS, libFuzzer 9M+ combined executions, zero crashes
 - **Filesystem isolation** ~ hand-rolled mount namespaces (read-only root, private `/tmp`, hidden `/home`/`/root`, minimal `/dev`)
 - **Capability bounding set cleared** ~ all five capability fields zeroed after privilege drop
