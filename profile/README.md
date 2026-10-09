@@ -1,15 +1,14 @@
 > ### **Our source code is now hosted at [forgejo.lain.rocks/lainOS](https://forgejo.lain.rocks/lainOS)**
 
-> **lainOS layer 02** is available at https://forgejo.lain.rocks/lainOS/lainOS-layer-02/releases
+> **lainOS layer 03** is available at https://forgejo.lain.rocks/lainOS/lainos-iso-layer-03/releases
 
-> **lainOS layer 01** with systemd is available at https://forgejo.lain.rocks/lainOS/lainOS/releases
+> **lainOS layer 02** with Protocol 7 is available at https://forgejo.lain.rocks/lainOS/lainOS-layer-02/releases
 
-# LainOS Layer 02: Protocol 7
+# LainOS Layer 03: Circuit VIII
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Architecture](https://img.shields.io/badge/Arch-x86__64-blue)](https://archlinux.org)
+[![Architecture](https://img.shields.io/badge/Arch-x86__64-blue)](https://gentoo.org)
 [![Init](https://img.shields.io/badge/Init-OpenRC-green)](https://github.com/OpenRC/openrc)
-[![ISO Size](https://img.shields.io/badge/ISO-2.7GB-blue)](https://lainos.net)
 [![Status](https://img.shields.io/badge/Status-Stable-green)](https://lainos.net)
 
 <!--Reddit-->
@@ -34,58 +33,55 @@
 </a>
 <br><br>
 
-**A systemd-free Arch Linux derivative built with OpenRC as PID 1, offering full ABI compatibility for systemd-linked software via the Protocol 7 compatibility architecture.**
+**A systemd-free Gentoo-based Linux distribution built with OpenRC as PID 1, delivering compile-time hardening, split-controller DNS mediation, and native OpenRC service isolation.**
 
 ---
 
-LainOS is a community-driven Linux project led by Grayson Giles ([@amnesia1337](https://github.com/amnesia1337)) and built by developers from the global *Serial Experiments Lain* community. Originally derived from the 2002 LainOS.org coding experiments, the project has evolved into a genuine init-system replacement instead merely a themed respin.
+LainOS is a community-driven Linux project led by Grayson Giles ([@amnesia1337](https://github.com/amnesia1337)) and built by developers from the global *Serial Experiments Lain* community. Originally derived from the 2002 LainOS.org coding experiments, the project has evolved from an arch respin into a Gentoo-based distribution.
 
-**Layer 02** is our current focus: a daily-driver distribution that balances usability, privacy, and security. Security hardening is a first-class concern, not an afterthought ~ but this is not a specialized security distribution like Qubes or Whonix. It is built to be *usable*, with hardening that does not get in the way.
+**Layer 03** is our next-generation focus: a daily-driver distribution that balances usability, privacy, and security, migrating the foundation from Arch Linux to Gentoo. Security hardening is a first-class concern, baked into the build itself via compile-time flags and a modular 4-layer OpenRC process isolation stack. This is not a specialized security distribution like Qubes or Whonix. It is built to be *usable*, with hardening that does not get in the way.
 
 If you like what we are doing, consider donating: [lainos.net/#donate](https://lainos.net/#donate)
 
 ---
 
-## ✨ What Makes Layer 02 Different
+## ✨ What Makes Layer 03 Different
 
 | Feature | Implementation |
 |---------|---------------|
 | **Init System** | OpenRC as PID 1 ~ no systemd binary present |
-| **Service Isolation/Containment** | All lainOS-shipped OpenRC services are **sandboxed by default**(namespace isolation, capability bounding, resource limits, seccomp syscall filtering).  |
-| **Compatibility** | Protocol 7 layer provides `libsystemd.so.0` ABI via real systemd-libs |
-| **Self-Hosted Stack** | Entire OpenRC ecosystem maintained in our own repository |
+| **Service Isolation** | Native OpenRC sandboxing via Rust (`rc-sandbox`, `lainos-sandbox-wrap`), bwrap, cgroup-v2, seccomp, and Landlock |
+| **Deployment** | Pre-built SquashFS image deployed to disk, ensuring deterministic, drift-free installations |
 | **Live ISO** | Fully bootable live environment with Calamares installer |
 | **Filesystem** | BTRFS by default, separate ext4 `/boot` for GRUB |
 | **Desktop** | Sway 1.12+ tiling compositor with custom keybindings and themed i3status-rs |
-| **Security** | Seccomp, mount namespaces, capability dropping, AppArmor MAC, hardened_malloc, ram-wipe |
+| **Security** | Compile-time hardening (PIE, Full RELRO, FORTIFY_SOURCE=3, CFI, LTO), AppArmor MAC, hardened_malloc, ram-wipe |
 
 ---
 
 ## 🔒 Security Posture
 
-Layer 02 ships with defense in depth at every layer:
+Layer 03 ships with defense in depth at every layer:
 
-- **OpenRC process isolation/containment stack** ~ written in rust. covers full network stack and core services
-- **Protocol 7 Core fuzz tested** ~ dfuzzer 2.6 full interface PASS, AddressSanitizer PASS, libFuzzer 9M+ combined executions, zero crashes
-- **Filesystem isolation** ~ hand-rolled mount namespaces (read-only root, private `/tmp`, hidden `/home`/`/root`, minimal `/dev`)
-- **Capability bounding set cleared** ~ all five capability fields zeroed after privilege drop
-- **Seccomp whitelisting** ~ `socket()` restricted to `AF_UNIX` only; `personality()`/`unshare()`/`setns()` blocked
-- **AppArmor MAC** ~ per-daemon profiles for all external-input components, loaded at boot before daemons start
+- **Compile-time hardening** ~ PIE, Full RELRO, FORTIFY_SOURCE=3, stack protection, CFI, and LTO set as compiler defaults in the Portage profile
+- **OpenRC process isolation stack** ~ written in Rust, composing bwrap (namespaces), cgroup-v2 (resource limits), seccomp-bpf (syscall filtering), and Landlock (path enforcement)
+- **Capability bounding set cleared** ~ minimal kernel capabilities, dropped by `lainos-sandbox-wrap` before its syscall filter loads
+- **AppArmor MAC** ~ per-daemon profiles for the full stack (DNS, networking, media, crypto, browsers), loaded at boot before daemons start
 - **hardened_malloc** ~ GrapheneOS light variant, preloaded for sensitive applications
 - **RAM wipe** ~ Kicksecure/Whonix-ported dracut shutdown hook + continuous `init_on_alloc`/`init_on_free`
 - **Kernel hardening** ~ Full ASLR, ptrace restriction (`yama.ptrace_scope=1`), kexec disabled, unprivileged user namespaces disabled, core dumps disabled, kernel pointer restriction (`kptr_restrict=2`)
 
 **Verify it yourself:**
 ```bash
-doas lainos-security-status              # read-only status dashboard
-doas protocol7-core-security-status      # 36-test adversarial suite
+doas lainos-security-status              # read-only status dashboard for kernel hardening, etc.
+doas openrc-security-status              # Adversarial test suite for OpenRC process isolation verification
 ```
 
 ---
 
 ## 🧩 OpenRC Service Isolation & Containment Stack
 
-Layer 02 ships with an **OpenRC-native service isolation stack** that provides systemd-equivalent containment (`ProtectSystem=`, `PrivateTmp=`, capability bounding, resource limits, syscall filtering) without systemd, without compatibility layers, and without forking OpenRC.
+Layer 03 ships with a **native OpenRC service isolation stack** that provides systemd-equivalent containment (`ProtectSystem=`, `PrivateTmp=`, capability bounding, resource limits, syscall filtering) without systemd, without compatibility layers, and without forking OpenRC.
 
 The stack composes four kernel primitives per service, driven by declarative `rc_*` variables in `/etc/conf.d/<service>`:
 
@@ -100,7 +96,7 @@ Both `rc-sandbox` and `lainos-sandbox-wrap` are written in **Rust** and compiled
 
 ### Default Behavior
 
-All lainOS-shipped services are **sandboxed by default**. A service runs unsandboxed only if explicitly opted out:
+All lainOS-shipped core services are **sandboxed by default**. A service runs unsandboxed only if explicitly opted out:
 
 ```bash
 # /etc/conf.d/<service>
@@ -117,8 +113,8 @@ The following core services run inside the isolation stack with per-service prof
 | `unbound` | `lainos-network` | Isolated | Host | Yes (`-d`) |
 | `dnscrypt-proxy` | `lainos-network` | Isolated | Host | Yes (default) |
 | `tor` | `lainos-network` | Isolated | Host | Yes (`--RunAsDaemon 0`) |
-| `dhcpcd` | `lainos-privileged` | **Host** | Host | No (`rc_unshare_pid="NO"`) |
-| `chrony` | `lainos-privileged` | **Host** | Host | Yes (`-d`) |
+| `dhcpcd` | `lainos-privileged` | **Host** (`rc_unshare_pid="NO"`) | Host | No |
+| `chrony` | `lainos-privileged` | **Host** (`rc_unshare_pid="NO"`) | Host | Yes (`-d`) |
 | `syslog-ng` | `lainos-base` | Isolated | **Isolated** | Yes (`-F`) |
 | `acpid` | `lainos-base` | Isolated | Host | No |
 | `iwd` | `lainos-privileged` | Isolated | Host | No |
@@ -150,7 +146,7 @@ doas openrc-security-status
 
 Example output:
 
-```
+```text
 === dnsmasq ===
   process               running as PID 8606 (comm=dnsmasq)
   namespace: mount      ISOLATED (own mount ns)
@@ -193,7 +189,7 @@ Applications never communicate directly with upstream DNS servers. The resolver 
 
 All DNS resolution follows a single deterministic path:
 
-```
+```text
                 +----------------------+
                 |   Local Application  |
                 +----------+-----------+
@@ -235,7 +231,7 @@ All DNS resolution follows a single deterministic path:
 
 `dnsmasq` operates as a forwarding resolver rather than a caching resolver:
 
-```
+```text
 cache-size=0
 no-negcache
 ```
@@ -256,11 +252,11 @@ The resolver is bound exclusively to the loopback interface and is never exposed
 
 In encrypted mode, the DNS chain splits responsibilities so no single component sees both the user's IP and their plaintext query:
 
-- **`dnsmasq`** — sees the user's IP but has no cache and no query history
-- **`unbound`** — validates DNSSEC, caches, and forwards to dnscrypt-proxy; does not see the user's IP
-- **`dnscrypt-proxy`** — encrypts and routes through an anonymized relay; sees neither the query nor the user's IP
-- **Relay** — knows the user's IP but not the query
-- **Resolver** — knows the query but not the user's IP
+- **`dnsmasq`** ~ sees the user's IP but has no cache and no query history
+- **`unbound`** ~ validates DNSSEC, caches, and forwards to dnscrypt-proxy; does not see the user's IP
+- **`dnscrypt-proxy`** ~ encrypts and routes through an anonymized relay; sees neither the query nor the user's IP
+- **Relay** ~ knows the user's IP but not the query
+- **Resolver** ~ knows the query but not the user's IP
 
 This is a stronger privacy model than direct DoT or DoH to a single provider, where one entity sees both.
 
@@ -268,15 +264,74 @@ This is a stronger privacy model than direct DoT or DoH to a single provider, wh
 
 The `lainos-dns` utility manages transitions between plaintext and encrypted modes, persisting the active mode to `/var/lib/lainos/dns-mode`.
 
-`private-mode` saves the previous DNS mode before switching to Tor, and restores it on exit. This ensures a user who prefers encrypted DNS does not silently revert to plaintext after using private mode.
+---
+
+## **Operational Modes**
+
+### **Plaintext Mode (Default)**
+
+During normal operation, `dnsmasq` forwards requests to the resolver information provided by DHCP. Manual fallback servers are available for situations where DHCP has not yet completed.
+
+Typical upstream hierarchy:
+- DHCP-provided DNS
+- Cloudflare (`1.1.1.1`)
+- Quad9 (`9.9.9.9`)
+
+Activated by: `lainos-dns plaintext`
+
+---
+
+### **Encrypted Mode**
+
+All DNS queries are routed through the `unbound` → `dnscrypt-proxy` chain with anonymized relay routing. Queries are encrypted, the user's IP is hidden from the resolver, and DNSSEC is validated locally.
+
+Activated by: `lainos-dns encrypted`
+
+---
+
+### **Private Mode**
+
+`private-mode` is a single command that switches the whole system into a hardened, Tor-routed state: WiFi/Ethernet MAC addresses are randomized, Snowflake bridges and `sdwdate` (Tor-based time sync) are enabled, and all DNS resolution is routed exclusively through Tor's own DNSPort — no plaintext or DoT DNS traffic leaves the system while private mode is active.
+
+Usage
+
+```
+doas private-mode on
+doas private-mode off
+doas private-mode status
+```
+
+(`private-mode` auto-elevates via `doas` if not already run as root, so the explicit `doas` above is optional.)
+
+What `on` does
+
+1. Locks out `lainos-wifi-dns` (via a lock file it checks for and exits on) so it can't independently re-trigger DNS backends later in this sequence, then stops DNS backends (`unbound`, `dnscrypt-proxy`, `stubby`) directly.
+2. Takes WiFi and Ethernet down, waiting for the default route to genuinely disappear before continuing.
+3. Enables the Snowflake pluggable transport and `sdwdate`.
+4. Brings WiFi and Ethernet back up with randomized MAC addresses. On WiFi, this does not reconnect automatically — open a second terminal and run `wscan` to reconnect once the interface is back up.
+5. Waits for a real network route (up to 60s), then always bootstraps Tor's own DNS resolution via encrypted DNS (`dnscrypt-proxy` + `unbound`/`stubby`), regardless of which DNS mode was active before entering private mode. If the encrypted path can't come up, `private-mode on` aborts outright rather than ever falling back to plaintext — no unencrypted DNS traffic leaves the system at any point while private mode is active, including during bootstrap.
+6. Once Tor's DNSPort responds, switches `dnsmasq` to route exclusively through Tor's DNSPort, stops `unbound`/`dnscrypt-proxy`, and releases the `lainos-wifi-dns` lock — they serve no purpose once fully on Tor DNS, so nothing unnecessary keeps running during your most privacy-sensitive mode.
+
+The whole sequence typically takes up to ~2 minutes (Tor DNSPort readiness is polled for up to 120s); `private-mode on` exits once Tor is fully bootstrapped. Use `nyx` after reconnecting to verify the Tor connection directly.
+
+What `off` does
+
+Takes the network down (again with a real route-down wait, not just an interface-state check), disables `sdwdate`, stops Tor, and restores whichever DNS mode (plaintext or encrypted) was active before private mode was originally entered — not simply defaulting back to plaintext. Network stays down afterward; run `wifi on` or `eth0 on` to reconnect manually, and DNS backends will start automatically once connectivity returns.
+
+`status`
+
+Shows Snowflake, `sdwdate`, WiFi, and Ethernet status together with the current DNS mode (`plaintext`, `encrypted`, or `private`).
+
+---
+
 
 ### AppArmor Confinement
 
 The entire DNS forwarding layer is confined under AppArmor:
 
-- `/usr/bin/dnsmasq` — limited to loopback networking and necessary configuration paths
-- `/usr/bin/unbound` — restricted to resolver operations and cache directories
-- `/usr/bin/dnscrypt-proxy` — restricted to encrypted socket operations and relay lists
+- `/usr/bin/dnsmasq` ~ limited to loopback networking and necessary configuration paths
+- `/usr/bin/unbound` ~ restricted to resolver operations and cache directories
+- `/usr/bin/dnscrypt-proxy` ~ restricted to encrypted socket operations and relay lists
 
 These profiles reduce attack surface by limiting filesystem access, network capabilities, and system calls to only what is required for DNS forwarding operations.
 
@@ -297,44 +352,43 @@ Mode transitions are explicit and stateful; `private-mode` remembers and restore
 
 The DNS mediation architecture provides:
 
-- **Stateless forwarding** — `dnsmasq` has no cache and no query history
-- **Loopback isolation** — resolver never exposed externally
-- **Split-controller privacy** — no single component sees both IP and query
-- **Explicit mode transitions** — user always knows which mode is active
-- **AppArmor confinement** — all DNS daemons are AppArmor-enforced
-- **Application transparency** — applications see only `127.0.0.1:53`
+- **Stateless forwarding** ~ `dnsmasq` has no cache and no query history
+- **Loopback isolation** ~ resolver never exposed externally
+- **Split-controller privacy** ~ no single component sees both IP and query
+- **Explicit mode transitions** ~ user always knows which mode is active
+- **AppArmor confinement** ~ all DNS daemons are AppArmor-enforced
+- **Application transparency** ~ applications see only `127.0.0.1:53`
 
 ---
 
 ## 🏗️ Architecture
 
+#### Boot/Session chain
+
 ```
-BIOS/UEFI → GRUB/Syslinux → kernel + initramfs
-  → Dracut: dmsquash-live mounts squashfs, execs /sbin/openrc-init
-     → OpenRC sysinit: dbus, lainos-notifyd, lainos-machine-id
-        → OpenRC boot: rfkill-unblock, cgroup-delegate, lainos-ghost-units, syslog-ng
-           → OpenRC default: seatd, lainos-dbus-bridge, greetd, chrony, nftables, acpid, polkit
-              → greetd → tuigreet → Sway session
-                 → lainos-session-sway → lainos-init → Sway
+Firmware (BIOS/Libreboot or UEFI)
+  → GRUB (i386-pc or x86_64-efi target)
+    → kernel + dracut initramfs (mounts real root, loads drivers)
+      → switch_root → openrc-init (PID 1)
+openrc-init
+  → sysinit: dbus, lainos-machine-id
+  → boot: syslog-ng, cgroup-delegate lainos-apparmor
+  → default:
+      dhcpcd → dnsmasq → unbound → dnscrypt-proxy → tor   (all rc-sandbox/bwrap-isolated)
+      acpid, chrony/sdwdate                               (rc-sandbox/bwrap-isolated)
+      iwd
+      seatd, nftables, polkit                            (NOT bwrap-isolated — rfkill needs real /dev)
+      greetd → tuigreet (login prompt)
+tuigreet (after login)
+  → lainos-session-sway (C binary)
+      sets GSETTINGS_BACKEND=keyfile, XDG_RUNTIME_DIR, XDG_CURRENT_DESKTOP=sway
+      lainos-apply-theme (first login only)
+      → dbus-run-session -- lainos-init (C binary)
+          sets LIBSEAT_BACKEND=seatd, SHELL=<pw_shell>, preserves a whitelisted
+          env subset, selects compositor
+          → sway (Wayland compositor) → user's bar/terminal/apps
 ```
 
-### Protocol 7 Compatibility Layer
-
-Protocol 7 is the architectural foundation enabling systemd-free operation while maintaining compatibility with software expecting systemd interfaces.
-
-> **Protocol 7 is not in a position to own your whole system. systemd, by contrast, is.**
-
-Real `systemd-libs` provide ABI compatibility — the client libraries function fine without systemd running as PID 1. `eudev` is a genuine, functional udev implementation. Custom C daemons handle responsibilities that systemd would otherwise own:
-
-| Component | Role |
-|-----------|------|
-| `lainos-init` | Session initializer ~ detects Wayland, sets environment, execs compositor |
-| `lainos-dbus-bridge` | `org.freedesktop.login1` D-Bus facade ~ fuzz tested, runs as nobody |
-| `lainos-notifyd` | `sd_notify` socket sink ~ fuzz tested, runs as nobody |
-| `lainos-ghost-units` | Creates `/run/systemd/*` ghost directories |
-| `lainos-audio-init` | PipeWire + WirePlumber + pipewire-pulse orchestration |
-| `lainos-machine-id` | Generates random `/etc/machine-id` on every boot |
-| `cgroup-delegate` | cgroup2 mount + controller delegation |
 
 ---
 
@@ -345,21 +399,24 @@ Real `systemd-libs` provide ABI compatibility — the client libraries function 
 - **wofi** application launcher
 - **alacritty** terminal emulator (tmux by default)
 - **mako** notification daemon
+- **swaybg** static wallpaper
 - **swaylock** screen locker with wallpaper background
 - **wlogout** session/power menu
 - **Powerlevel10k** zsh prompt
 - **CoplandOS-GTK** dark theme with StarLabs cursor
-- **PipeWire** audio (orchestrated by `lainos-audio-init`)
+- **PipeWire** audio, bundled by default
 
 **Keybindings:**
 | Key | Action |
 |-----|--------|
-| `Mod4+Return` | Open terminal |
-| `Mod4+Space` | Application launcher |
+| `Mod4+Return` | Open terminal (alacritty + tmux) |
+| `Mod4+Space` | Application launcher (wofi) |
 | `Mod4+Shift+q` | Close focused window |
 | `Mod4+1-9` | Switch workspace |
+| `Mod4+Shift+1-9` | Move window to workspace |
+| `Mod4+h/j/k/l` | Focus left/down/up/right |
+| `Mod4+Shift+h/j/k/l` | Move window left/down/up/right |
 | `Mod4+w` | Open LibreWolf |
-| `Mod4+f` | Open Thunar |
 
 ---
 
@@ -368,7 +425,7 @@ Real `systemd-libs` provide ABI compatibility — the client libraries function 
 - **WiFi off by default** ~ `iwd` does not start automatically; toggle with `wifi on` / `wifi-autostart`
 - **MAC randomization** ~ new MAC every time iwd starts; ethernet via `eth0` toggle
 - **DNS mediation** ~ centralized via `dnsmasq` at `127.0.0.1:53`
-  - **Plaintext** (default) — DHCP with 1.1.1.1/9.9.9.9 fallbacks
+  - **Plaintext** (default) ~ DHCP with 1.1.1.1/9.9.9.9 fallbacks
   - **Encrypted** ~ `dnsmasq` → `unbound` → `dnscrypt-proxy` (no single component sees both IP and query)
   - **Private** ~ Tor DNSPort via `private-mode`
 - **Tor stream isolation** ~ dedicated circuits `tor1`-`tor4` for per-application isolation
@@ -385,7 +442,7 @@ Real `systemd-libs` provide ABI compatibility — the client libraries function 
 ### Live Boot
 
 ```bash
-doas dd if=~/lainos-out/lainOS-layer-02-*.iso of=/dev/sdX bs=4M status=progress oflag=sync
+doas dd if=~/lainos-out/lainOS-layer-03-*.iso of=/dev/sdX bs=4M status=progress oflag=sync
 ```
 
 Boot from USB, login as `liveuser` (no password) at `tuigreet`. Calamares launches automatically.
@@ -398,7 +455,7 @@ Boot from USB, login as `liveuser` (no password) at `tuigreet`. Calamares launch
 | RAM | 2 GB | GPU with Mesa drivers |
 | Storage | 4 GB USB/disk | USB 3.0 for live boot |
 
-**Tested on:** QEMU/KVM with Virtio GPU, ThinkPad T480 (Libreboot) — baremetal confirmed, UEFI and BIOS, including LUKS FDE.
+**Tested on:** QEMU/KVM with Virtio GPU, ThinkPad T480 (Libreboot) ~ baremetal confirmed, UEFI and BIOS, including LUKS FDE with BTRFS.
 
 ### Post-Install Quickstart
 
@@ -419,19 +476,16 @@ private-mode on      # One-command sensitive-work mode
 
 ## 🛠️ Building
 
-**Build host:** LainOS Layer 02 or Arch Linux with Protocol 7 repository configured
+**Build host:** Gentoo Linux with OpenRC, or any Linux distribution capable of chroot operations.
 
 ```bash
-doas pacman -S archiso base-devel git
-git clone https://forgejo.lain.rocks/lainOS/lainos-iso-layer-02.git
-cd lainos-iso-layer-02
-doas rm -rf ~/lainos-work ~/lainos-out
-mkdir -p ~/lainos-work ~/lainos-out
-yes "" | doas mkarchiso -v -w ~/lainos-work -o ~/lainos-out protocol7-profile 2>&1 | tee ~/lainos-build.log
-lainos-hash-iso
+emerge -uv app-portage/ebuild app-portage/gentoolkit sys-fs/squashfs-tools sys-boot/grub sys-kernel/dracut
+git clone https://forgejo.lain.rocks/lainOS/lainos-iso-layer-03.git
+cd lainos-iso-layer-03
+doas ./build-lainos.sh
 ```
 
-ISO output: `~/lainos-out/lainOS-layer-02-YYYY.MM.DD-x86_64.iso`
+ISO output: `/var/tmp/lainos-out/lainOS-layer-03-YYYY.MM.DD-x86_64.iso`
 
 ---
 
@@ -441,17 +495,19 @@ One-command utilities for daily operation:
 
 | Command | Purpose |
 |---------|---------|
-| `wifi {on|off|status}` | WiFi radio control |
+| `wifi {on\|off\|status}` | WiFi radio control |
 | `wscan` | iwd scan + connect menu |
-| `eth0 {on|off|status}` | Wired interface + MAC randomization |
+| `eth0 {on\|off\|status}` | Wired interface + MAC randomization |
 | `wg1`-`wg4` / `wg1d`-`wg4d` | WireGuard VPN up/down |
 | `tor1`-`tor4` | Isolated Tor circuits (auto-detects Electron apps) |
-| `private-mode {on|off|status}` | Sensitive-work sequence |
-| `lainos-dns {plaintext|encrypted|private|status}` | DNS mode toggle |
-| `lainos-sdwdate {enable|disable|status}` | Tor-based time sync |
+| `private-mode {on\|off\|status}` | Sensitive-work sequence |
+| `lainos-dns {plaintext\|encrypted\|private\|status}` | DNS mode toggle |
+| `lainos-sdwdate {enable\|disable\|status}` | Tor-based time sync |
 | `snowflake` / `obfs4` | Tor pluggable transports |
-| `ram-wipe {enable|disable|status}` | Shutdown RAM wipe toggle |
-| `lainos-hardened-malloc {enable|disable|status}` | System-wide hardened_malloc |
+| `ram-wipe {enable\|disable\|status}` | Shutdown RAM wipe toggle |
+| `lainos-hardened-malloc {enable\|disable\|status}` | System-wide hardened_malloc |
+| `maybenot-tunnel {enable\|disable\|status}` | Traffic analysis resistance |
+| `kloak` | Keystroke anonymization |
 
 ---
 
@@ -460,9 +516,6 @@ One-command utilities for daily operation:
 LainOS is developed by Grayson Giles and the LainOS community.
 
 - **Forgejo:** https://forgejo.lain.rocks/lainOS/
-- **Codeberg:** https://codeberg.org/lainOS
-- **GitLab:** https://gitlab.com/lainos
-- **GitHub:** https://github.com/The-LainOS-Project
 - **Website:** https://lainos.net
 - **Security verification:** `lainos-security-suite` repository (see org links above)
 
@@ -472,13 +525,13 @@ Please include:
 - ISO version/date
 - Hardware/VM configuration
 - `rc-status` output
-- Relevant logs from `/var/log/rc.log` or `dmesg`
+- Relevant logs from `/var/log/daemon.log` or `dmesg`
 
 ---
 
 ## 📜 License
 
-LainOS Layer 02 and the Protocol 7 compatibility layer are released under the **GNU General Public License v3.0**.
+LainOS Layer 03 is released under the **GNU General Public License v3.0**.
 
 Individual components (Sway, OpenRC, Calamares, etc.) retain their respective licenses.
 
@@ -486,18 +539,17 @@ Individual components (Sway, OpenRC, Calamares, etc.) retain their respective li
 
 ## 🙏 Acknowledgments
 
-- **Arch Linux** ~ The foundation everything is built on
+- **Gentoo Linux** ~ The foundation everything is built on
 - **OpenRC** ~ Reliable, predictable init system
 - **GrapheneOS** ~ hardened_malloc
 - **Sway/wlroots** ~ Modern Wayland compositor ecosystem
 - **Calamares** ~ User-friendly system installer
-- **Kicksecure/Whonix** ~ sdwdate, bootclockrandomization, ram-wipe, and security-hardening model
+- **Kicksecure/Whonix** ~ sdwdate, bootclockrandomization, ram-wipe, and security architecture inspiration
 
 ---
 
-*Current package: protocol7-core-5.5.3-27*  
-*Status: Stable  
-*Last updated: 2026-07-29*
+*Status: Stable*  
+*Last updated: 2026-10-09*
 
 Grayson Giles aka amnesia1337  
 PGP fingerprint: `456F268D14C9ECCE1A77355803E8F5B63BAC3998`  
