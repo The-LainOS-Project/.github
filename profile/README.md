@@ -325,9 +325,9 @@ Shows Snowflake, `sdwdate`, WiFi, and Ethernet status together with the current 
 ---
 
 
-### AppArmor Confinement
+### AppArmor Confinement and Service Isolation
 
-The entire DNS forwarding layer is confined under AppArmor:
+The entire DNS forwarding layer is confined under AppArmor along with having its OpenRC services isolated:
 
 - `/usr/bin/dnsmasq` ~ limited to loopback networking and necessary configuration paths
 - `/usr/bin/unbound` ~ restricted to resolver operations and cache directories
