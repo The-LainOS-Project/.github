@@ -361,6 +361,36 @@ The DNS mediation architecture provides:
 
 ---
 
+## 🎮 Steam & Gaming Configuration
+
+LainOS Layer 03 provides a dedicated, idempotent setup script to safely enable Steam and gaming compatibility without compromising the hardened, systemd-free OpenRC environment. 
+
+### Steam Auto-Configuration Script
+
+The `steam_autoconfig.sh` script handles the complex multilib and XWayland requirements of the Steam client declaratively. It is safe to re-run and performs a single reconciliation pass to rebuild any installed packages whose USE flags have changed.
+
+**Key Operations:**
+- **Preflight Verification**: Ensures the active Portage profile inherits `23.0/hardened` (merged-usr) to prevent split-usr collisions.
+- **Repository Setup**: Automatically configures the `guru` repository metadata and syncs the `steam-overlay`.
+- **Targeted USE Flags**: Applies precise, minimal USE flag adjustments in `/etc/portage/package.use/steam`:
+  - `sys-libs/glibc hash-sysv-compat` ~ Required for Easy Anti-Cheat legacy DT_HASH support.
+  - `games-util/game-device-udev-rules -acl` ~ Prevents OpenRC from pulling in `elogind` or `systemd` dependencies.
+  - `sys-apps/dbus X` ~ Resolves `steam-launcher` blocking on `dbus[abi_x86_32,-X]`.
+  - `llvm-core/llvm zstd` & `abi_x86_32` ~ Prevents `lld` slot conflicts and Portage backtracker deadlocks during multilib rebuilds.
+  - `dev-libs/elfutils` & `virtual/libelf abi_x86_32` ~ Satisfies multilib dependency chains.
+  - `gui-wm/sway X` & `gui-libs/wlroots X` ~ Enables XWayland support, as the Steam client remains X11-only.
+- **Idempotent Reconciliation**: Executes `emerge -avN @world` alongside `games-util/steam-launcher` and `gnome-extra/zenity`, ensuring the entire system is consistently rebuilt against the new policy in a single transaction.
+- **Permissions**: Automatically adds the current user to the `input` group for Steam Input and controller support.
+
+**Usage:**
+```bash
+# Make the script executable and run it (it will invoke doas internally for portage operations)
+chmod +x steam_autoconfig.sh
+./steam_autoconfig.sh
+```
+
+*Note: After the script completes successfully, log out and log back in to apply the new `input` group membership and XWayland environment variables, then launch `steam`.*
+
 ## 🏗️ Architecture
 
 #### Boot/Session chain
