@@ -1,8 +1,8 @@
-> ### **Our source code is now hosted at [forgejo.lain.rocks/lainOS](https://forgejo.lain.rocks/lainOS)**
+> ### **Our source code is now hosted at [git.lainos.net/lainOS](https://git.lainos.net/lainOS)**
 
 >[**PGP Keys**](https://github.com/The-LainOS-Project/PGP)
 
-> **lainOS layer 03** is available at https://forgejo.lain.rocks/lainOS/lainOS-layer-03/releases
+> **lainOS layer 03** is available at https://git.lainos.net/lainOS/lainOS-layer-03/releases
 
 > **lainOS layer 02** with Protocol 7 is available at https://forgejo.lain.rocks/lainOS/lainOS-layer-02/releases
 
@@ -32,7 +32,7 @@
   <img align="top" src="https://img.shields.io/badge/Lain%20OS%20web-3d3b93?style=for-the-badge&logo=Devbox" alt="Web">
 </a>
 <!--Forgejo-->
-<a href="https://forgejo.lain.rocks/lainOS" target="_blank">
+<a href="https://git.lainos.net/lainOS" target="_blank">
   <img align="top" src="https://img.shields.io/badge/Forgejo-ff6600?style=for-the-badge&logo=forgejo&logoColor=white" alt="Forgejo">
 </a>
 <br><br>
@@ -514,7 +514,7 @@ private-mode on      # One-command sensitive-work mode
 
 ```bash
 emerge -uv app-portage/ebuild app-portage/gentoolkit sys-fs/squashfs-tools sys-boot/grub sys-kernel/dracut
-git clone https://forgejo.lain.rocks/lainOS/lainos-iso-layer-03.git
+git clone https://git.lainos.net/lainOS/lainos-iso-layer-03.git
 cd lainos-iso-layer-03
 doas ./build-lainos.sh
 ```
@@ -549,7 +549,7 @@ One-command utilities for daily operation:
 
 LainOS is developed by Grayson Giles and the LainOS community.
 
-- **Forgejo:** https://forgejo.lain.rocks/lainOS/
+- **Forgejo:** https://git.lainos.net/lainOS/
 - **Website:** https://lainos.net
 - **Security verification:** `lainos-security-suite` repository (see org links above)
 
