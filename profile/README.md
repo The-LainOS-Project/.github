@@ -1,4 +1,4 @@
-> ## **Our source code is now hosted at [git.lainos.net/lainOS](https://git.lainos.net/lainOS)**
+> ## **Our source code is now hosted at [https://git.lainos.net/](https://git.lainos.net)**
 
 >[**PGP Keys**](https://github.com/The-LainOS-Project/PGP)
 
